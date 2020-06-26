@@ -1,16 +1,12 @@
 import logging
 import os
 from logging.handlers import RotatingFileHandler
-import sys
 
-from config import Config
-
-print(sys.path)
-from quart import Quart
 from git import InvalidGitRepositoryError, Repo
+from quart import Quart
 
 from app.utils import check_create
-
+from config import Config
 
 app: Quart = Quart(__name__, static_folder=None)
 app.config.from_object(Config)
