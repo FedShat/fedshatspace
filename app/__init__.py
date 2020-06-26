@@ -2,16 +2,14 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 import sys
+
+from config import Config
+
 print(sys.path)
 from quart import Quart
 from git import InvalidGitRepositoryError, Repo
 
 from app.utils import check_create
-
-
-class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'secret')
-    WAKATIME_KEY = os.environ.get('WAKATIME_KEY', None)
 
 
 app: Quart = Quart(__name__, static_folder=None)
