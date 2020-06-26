@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{%- macro index_style() -%}
+    {% if page == 'index' %}
+        {{ 'left:0; top: 0;' }}
+    {% elif page == 'about' %}
+        {{ 'left: -100vw; top: -100vh;' }}
+    {% elif page == 'projects' %}
+        {{ 'left: 100vw; top: -100vh;' }}
+    {% endif %}
+{%- endmacro -%}
+{%- macro about_style() -%}
+    {% if page == 'index' %}
+        {{ 'left: 100vw; top: 100vh;' }}
+    {% elif page == 'about' %}
+        {{ 'left: 0; top: 0;' }}
+    {% elif page == 'projects' %}
+        {{ 'left: 100vw; top: 100vh;' }}
+    {% endif %}
+{%- endmacro -%}
+{%- macro projects_style() -%}
+    {% if page == 'index' %}
+        {{ 'left: -100vw; top: 100vh;' }}
+    {% elif page == 'about' %}
+        {{ 'left: -100vw; top: 100vh;' }}
+    {% elif page == 'projects' %}
+        {{ 'left: 0; top: 0;' }}
+    {% endif %}
+{%- endmacro -%}
+
+{% block content %}
+    <div class="page">
+        <div class="page-bg" id="page-bg"></div>
+        <div class="section-front" style="{{ index_style() }}">
+            <div class="section-front-content">
+                <h1 class="h0">vanutp</h1>
+                <div class="menu">
+                    <div class="menu-item">
+                        <div class="contacts">
+                            <a href="tg://resolve?domain=vanutp" class="contact-btn anim-item"><i
+                                    class="fab fa-telegram-plane"></i></a>
+                            <a href="https://github.com/Ivan1874" class="contact-btn anim-item"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://git.ivan1874.cf" class="contact-btn anim-item"><i
+                                    class="fab fa-git"></i></a>
+                            <a href="https://gitlab.com/Ivan1874" class="contact-btn anim-item"><i
+                                    class="fab fa-gitlab"></i></a>
+                            <a href="https://vk.com/vanutp" class="contact-btn anim-item"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                    <div class="menu-item anim-item">
+                        <button type="button" class="btn-about">Обо мне</button>
+                    </div>
+                    <div class="menu-item anim-item">
+                        <button type="button" class="btn-projects">Проекты</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-about" style="{{ about_style() }}">
+            <button type="button" class="btn-back left"><i class="fa fa-arrow-left"></i></button>
+            <div class="section-about-content container">
+                <h1>Обо мне:</h1>
+                <p>14 лет, программист, <span style="text-decoration: line-through;">дизайнер</span></p>
+                <p>Мои никнеймы: Ivan1874, TheGatekeeper, vanutp, fox</p>
+                <p>Живу в Москве</p>
+                <p>Знаю Python, html/css/js, Delphi (ну во всяком случае когда-то знал). Плохо знаю Java/Kotlin, C#,
+                    Smali</p>
+                <p>Программирую в IDE от JetBrains</p>
+                <p>За последнюю неделю {{ code_stats }} (данные динамичны 🙂)</p>
+                <p>(данные выше некорректны до 03.07, потому что я это только что поставил 🙃)</p>
+            </div>
+        </div>
+        <div class="section-projects" style="{{ projects_style() }}">
+            <button type="button" class="btn-back right"><i class="fa fa-arrow-right"></i></button>
+            <div class="section-projects-content container">
+                <h1>Проекты</h1>
+                <ul>
+                    <li><a href="tg://resolve?domain=findnewbot">FindNewBot</a> - поисковик ботов (Telegram)</li>
+                    <li><a href="tg://resolve?domain=codiens">Homo Codiens</a> - чат в Telegram</li>
+                    <li><a href="tg://resolve?domain=Ivan1874PokeBot">Poke Bot</a> (<a
+                            href="https://github.com/Ivan1874/PokemonRecognizerBot">код</a>) - нейросеть, распознающая
+                        покемонов (Telegram)
+                    </li>
+                    <li><a href="tg://resolve?domain=short_ubot">Short uBot</a> (<a
+                            href="https://s.ivan1874.cf">сайт</a> (пока не готов)) - сокращатель ссылок (Telegram)
+                    </li>
+                    <li>Юзербот для Telegram с полезными функциями. Пока нет в общем доступе</li>
+                    <li><a href="https://progtime.net">Progtime</a> - тестирующая/обучающая система</li>
+                    <li><a href="https://mes.ivan1874.cf">Система обучения математике</a> - система обучения математике
+                    </li>
+                    <li><a href="https://gitlab.com/ivan1874/vanutpdev">Этот сайт</a> - ¯\_(ツ)_/¯</li>
+                </ul>
+                <p>Замороженые/заброшеные:</p>
+                <ul>
+                    <li><a href="https://github.com/Ivan1874/CCG">CCG</a> - шелл для Windows</li>
+                    <li><a href="https://github.com/AcaplaStd/Paperfeed">Paperfeed</a> - фид для Telegram (как в вк)
+                    </li>
+                    <li><a href="https://github.com/AcaplaStd/GlassMind">GlassMind</a> - социальная сеть чтобы делиться
+                        нейросетями
+                    </li>
+                    <li><a href="https://github.com/Ivan1874/TheMessengerProject">Мессенджер</a> - хз что это</li>
+                    <li><a href="https://github.com/Ivan1874/GTC_UltraSans">хакатон GoTo лета 2019</a> - бот для
+                        создания групп учащихся, получения обратной связи и задачи вопросов
+                    </li>
+                    <li><a href="https://github.com/Ivan1874/GoToHack_20">1 хакатон GoTo зимы 2020</a> - игра, где надо
+                        запрограммировать своего бота, чтобы он закрасил как можно больше клеток
+                    </li>
+                    <li><a href="https://github.com/Ivan1874/GoToHack_20_2">2 хакатон GoTo зимы 2020</a> - можно я не
+                        буду говорить что это, да?
+                    </li>
+                    <li><a href="https://github.com/Ivan1874/OfflineMultimedia">Оффлайн хранилище мультимедиа</a> (видео
+                        с youtube, веб страницы и т.д.)
+                    </li>
+                    <li><a href="https://github.com/Ivan1874/ParentalControl">Родительский контроль</a> для Windows</li>
+                    <li><a href="https://github.com/Ivan1874/TestModule">Программа для создания тестов</a></li>
+                    <li>Валюта чата в Telegram (бот) - пока что не доступен</li>
+                    <li>Расширения ботов - модуль для python, устанавливающийся как дополнение к библиотеке
+                        (python-telegram-bot, telethon), позволяющий быстро реализовать аналитику, обратную связь и т.д.
+                    </li>
+                </ul>
+                <p>Сервисы у меня на сервере:</p>
+                <ul>
+                    <li><a href="https://pwd.ivan1874.dynu.net">pwd.ivan1874.dynu.net</a> - Bitwarden</li>
+                    <li><a href="https://cloud.ivan1874.dynu.net">cloud.ivan1874.dynu.net</a> - Nextcloud</li>
+                    <li><a href="https://git.ivan1874.cf">git.ivan1874.cf</a> - Gitea</li>
+                </ul>
+                <p>Чужие проекты на моем сервере:</p>
+                <ul>
+                    <li><a href="https://tiuto.ru/">https://tiuto.ru/</a></li>
+                    <li><a href="https://thedise.ru/">Файлы DMCG, Instander</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    font-feature-settings: "calt" 1;
+    text-rendering: optimizeLegibility;
+    font-family: 'Fira Code VF', monospace;
+    font-variation-settings: "wght" 400;
+    color: #fff;
+    text-align: left;
+    background-color: #111;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a:focus, button:focus {
+    outline: none;
+}
+
+img.emoji {
+    height: 1em;
+    width: 1em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.1em;
+}
+
+.page {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.page-bg {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+}
+
+.section-front, .section-about, .section-projects {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    transition: 0.8s all ease-in-out;
+}
+
+.section-front {
+    text-align: center;
+}
+
+.container {
+    max-width: 700px;
+    overflow: auto;
+}
+
+.h0 {
+    font-size: 5rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.anim-item {
+    transition: all .7s ease-in-out;
+    opacity: 0;
+}
+
+.menu-item > button, .contacts .contact-btn {
+    background: #222;
+    transition: all .3s ease-in;
+    color: #bbb;
+}
+
+.menu-item > button:hover, .contacts .contact-btn:hover {
+    background: #333;
+}
+
+.menu-item > button {
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin-bottom: 8px;
+}
+
+.contacts {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.contacts .contact-btn {
+    padding: 5px;
+    border-radius: 30px;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.btn-back {
+    position: absolute;
+    top: 20px;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1em;
+    border: none;
+    border-radius: 1.5rem;
+    background: #444;
+    transition: all .3s ease-in;
+    color: #eee;
+}
+
+.btn-back.left {
+    left: 20px;
+    transform: rotate(45deg);
+}
+
+.btn-back.right {
+    right: 20px;
+    transform: rotate(-45deg);
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('send_static', path='meta/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('send_static', path='meta/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('send_static', path='meta/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('send_static', path='meta/site.webmanifest') }}">
+    <link rel="preload" href="{{ url_for('send_static', path='fonts/woff2/FiraCode-VF.woff2') }}" as="font" type="font/woff2">
+    <link rel="preload" href="{{ url_for('send_static', path='fonts/woff/FiraCode-VF.woff') }}" as="font" type="font/woff">
+    <title>{% block title %}vanutp{% if title %} - {{ title }}{% endif %}{% endblock %}</title>
+    {% block styles %}
+        {% for asset in CSS_ASSETS %}
+            <link rel="stylesheet" href="{{ url_for('send_static', path=asset[0], v=asset[1]) }}">
+        {% endfor %}
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+
+{% endblock %}
+{% block scripts %}
+    {% for asset in JS_ASSETS %}
+        <script src="{{ url_for('send_static', path=asset[0], v=asset[1]) }}"></script>
+    {% endfor %}
+    <script>twemoji.parse(document.body);</script>
+{% endblock %}
+</body>
+</html>
