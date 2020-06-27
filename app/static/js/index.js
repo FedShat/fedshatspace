@@ -1,24 +1,45 @@
-const section_front = $('.section-front');
+const section_index = $('.section-index');
 const section_about = $('.section-about');
 const section_projects = $('.section-projects');
+const section_index_inner = $('.section-index-inner');
+const section_about_inner = $('.section-about-inner');
+const section_projects_inner = $('.section-projects-inner');
 const abandoned = $('.abandoned');
 
 function goto_about() {
-    section_front.css('left', '-100vw').css('top', '-100vh');
+    section_about_inner.css('display', '');
+    section_index.css('left', '-100vw').css('top', '-100vh');
     section_about.css('left', '0').css('top', '0');
     section_projects.css('left', '-100vw').css('top', '100vh');
+    section_about.on('transitionend', function () {
+        section_projects_inner.css('display', 'none');
+        section_index_inner.css('display', 'none');
+        section_about.unbind('transitionend');
+    });
 }
 
 function goto_projects() {
-    section_front.css('left', '100vw').css('top', '-100vh');
+    section_projects_inner.css('display', '');
+    section_index.css('left', '100vw').css('top', '-100vh');
     section_about.css('left', '100vw').css('top', '100vh');
     section_projects.css('left', '0').css('top', '0');
+    section_projects.on('transitionend', function () {
+        section_about_inner.css('display', 'none');
+        section_index_inner.css('display', 'none');
+        section_projects.unbind('transitionend');
+    });
 }
 
 function goto_index() {
-    section_front.css('left', '0').css('top', '0');
+    section_index_inner.css('display', '');
+    section_index.css('left', '0').css('top', '0');
     section_about.css('left', '100vw').css('top', '100vh');
     section_projects.css('left', '-100vw').css('top', '100vh');
+    section_index.on('transitionend', function () {
+        section_about_inner.css('display', 'none');
+        section_projects_inner.css('display', 'none');
+        section_index.unbind('transitionend');
+    });
 }
 
 $('.btn-about').on('click', function () {

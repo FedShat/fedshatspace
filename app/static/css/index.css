@@ -40,7 +40,7 @@ a, .link {
     cursor: pointer;
 }
 
-a:hover, .link:hover {
+a:hover, .link:hover, a:focus, .link:focus {
     text-decoration: underline;
 }
 
@@ -81,7 +81,7 @@ img.emoji {
     z-index: -1000;
 }
 
-.section-front, .section-about, .section-projects {
+.section-index, .section-about, .section-projects {
     position: fixed;
     display: flex;
     align-items: center;
@@ -92,7 +92,7 @@ img.emoji {
     transition: 0.8s all ease-in-out;
 }
 
-.section-front {
+.section-index {
     text-align: center;
 }
 
@@ -134,12 +134,12 @@ h1 {
     fill: #bbb;
 }
 
-.btn-contact svg {
-    height: 27px;
+.menu-item > button:hover, .btn-contact:hover, .menu-item > button:focus, .btn-contact:focus {
+    background: #333;
 }
 
-.menu-item > button:hover, .btn-contact:hover {
-    background: #333;
+.btn-contact svg {
+    height: 27px;
 }
 
 .menu-item > button {
@@ -181,6 +181,11 @@ h1 {
     color: #eee;
     fill: #eee;
 }
+
+.btn-back:hover, .btn-back:focus {
+    background: #555
+}
+
 .btn-back svg {
     height: 1rem;
     width: 1rem;
