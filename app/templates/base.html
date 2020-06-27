@@ -12,6 +12,7 @@
     <link rel="preload" href="{{ url_for('send_static', path='fonts/woff/FiraCode-VF.woff') }}" as="font" type="font/woff">
     <link rel="preconnect" href="https://mc.yandex.ru">
     <link rel="preconnect" href="https://twemoji.maxcdn.com">
+    <link rel="preconnect" href="https://storage.googleapis.com">
     <title>{% block title %}vanutp{% if title %} - {{ title }}{% endif %}{% endblock %}</title>
     {% block styles %}
         {% for asset in CSS_ASSETS %}
