@@ -148,7 +148,7 @@ h1 {
     flex-direction: row;
 }
 
-.contacts .contact-btn {
+.contacts .btn-contact {
     padding: 5px;
     border-radius: 30px;
     height: 3rem;
