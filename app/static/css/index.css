@@ -1,3 +1,7 @@
+*, ::after, ::before {
+    box-sizing: border-box
+}
+
 body {
     margin: 0;
     line-height: 1.5;
@@ -11,13 +15,46 @@ body {
     background-color: #111;
 }
 
-ul {
+ul, p {
     list-style: none;
     padding: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
-a:focus, button:focus {
+a, button, a:focus, button:focus {
     outline: none;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border-style: none;
+}
+
+a, .link {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover, .link:hover {
+    text-decoration: underline;
+}
+
+button {
+    cursor: pointer;
+}
+
+.h-0, .collapse {
+    max-height: 0 !important;
+}
+
+.p-0, .collapse {
+    padding: 0 !important;
+}
+
+.m-0, .collapse {
+    margin: 0 !important;
 }
 
 img.emoji {
@@ -60,6 +97,18 @@ img.emoji {
 .container {
     max-width: 700px;
     overflow: auto;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5rem;
+    line-height: 1.2;
 }
 
 .h0 {
@@ -76,13 +125,13 @@ img.emoji {
     opacity: 0;
 }
 
-.menu-item > button, .contacts .contact-btn {
+.menu-item > button, .contacts .btn-contact {
     background: #222;
     transition: all .3s ease-in;
     color: #bbb;
 }
 
-.menu-item > button:hover, .contacts .contact-btn:hover {
+.menu-item > button:hover, .contacts .btn-contact:hover {
     background: #333;
 }
 
@@ -133,4 +182,9 @@ img.emoji {
 .btn-back.right {
     right: 20px;
     transform: rotate(-45deg);
+}
+
+.abandoned {
+    transition: max-height 0.4s ease-in-out;
+    overflow: hidden;
 }

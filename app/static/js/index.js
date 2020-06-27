@@ -1,21 +1,27 @@
 const section_front = $('.section-front');
 const section_about = $('.section-about');
 const section_projects = $('.section-projects');
+const abandoned = $('.abandoned');
+const abandoned_inner = $('.abandoned-inner');
+
 function goto_about() {
     section_front.css('left', '-100vw').css('top', '-100vh');
     section_about.css('left', '0').css('top', '0');
     section_projects.css('left', '-100vw').css('top', '100vh');
 }
+
 function goto_projects() {
     section_front.css('left', '100vw').css('top', '-100vh');
     section_about.css('left', '100vw').css('top', '100vh');
     section_projects.css('left', '0').css('top', '0');
 }
+
 function goto_index() {
     section_front.css('left', '0').css('top', '0');
     section_about.css('left', '100vw').css('top', '100vh');
     section_projects.css('left', '-100vw').css('top', '100vh');
 }
+
 $('.btn-about').on('click', function () {
     goto_about();
     history.pushState({page: 1}, 'vanutp - обо мне', '/about');
@@ -28,6 +34,9 @@ $('.btn-back').on('click', function () {
     goto_index();
     history.pushState({page: 0}, 'vanutp', '/');
 })
+$('.btn-abandoned').on('click', function () {
+    abandoned.toggleClass('collapse');
+})
 particlesJS.load('page-bg', '/static/particles.json', function () {
 });
 $(document).ready(function () {
@@ -39,8 +48,9 @@ $(document).ready(function () {
         }, cnt * 300);
         cnt++;
     })
+    resize();
 });
-window.onpopstate = function(event) {
+$(window).on('popstate', function (event) {
     if (document.location.pathname === '/') {
         goto_index();
     } else if (document.location.pathname === '/about') {
@@ -48,4 +58,10 @@ window.onpopstate = function(event) {
     } else if (document.location.pathname === '/projects') {
         goto_projects();
     }
-};
+});
+
+function resize() {
+    abandoned.css('max-height', abandoned_inner.outerHeight(true))
+}
+
+$(window).on('resize', resize);
