@@ -20,3 +20,13 @@ async def send_favicon():
 @app.route('/static/<path:path>')
 async def send_static(path):
     return await send_from_directory('app/static', path)
+
+
+@app.route('/sw.js')
+async def send_service_worker():
+    return await send_from_directory('app/static', 'js/sw.js')
+
+
+@app.route('/site.webmanifest')
+async def send_manifest():
+    return await send_from_directory('app/static', 'meta/site.webmanifest')

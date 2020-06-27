@@ -91,3 +91,29 @@ $(document).on('keyup', function (e) {
         }
     }
 })
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js', {scope: '.'}).then(reg => {
+            reg.addEventListener('updatefound', () => {
+                var newWorker = reg.installing;
+
+                newWorker.addEventListener('statechange', () => {
+                    switch (newWorker.state) {
+                        case 'installed':
+                            if (navigator.serviceWorker.controller) {
+                                newWorker.postMessage({action: 'skipWaiting'});
+                            }
+                            break;
+                    }
+                });
+            });
+        });
+        let refreshing;
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+            if (refreshing) return;
+            window.location.reload();
+            refreshing = true;
+        });
+    });
+}
