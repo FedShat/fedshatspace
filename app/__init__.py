@@ -20,7 +20,7 @@ except InvalidGitRepositoryError:
 assets_version = git.head.commit.hexsha[:7] if GIT_ENABLED else 6
 JS_ASSETS = [('js/jquery-3.5.1.min.js', 1), ('js/particles.min.js', 1), ('js/twemoji.min.js', 1),
              ('js/index.js', assets_version)]
-CSS_ASSETS = [('css/fira_code.css', 1), ('css/fontawesome.min.css', 1), ('css/index.css', assets_version)]
+CSS_ASSETS = [('css/fira_code.css', 1), ('css/index.css', assets_version)]
 app.jinja_env.globals.update(CSS_ASSETS=CSS_ASSETS)
 app.jinja_env.globals.update(JS_ASSETS=JS_ASSETS)
 

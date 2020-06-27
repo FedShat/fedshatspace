@@ -127,13 +127,18 @@ h1 {
     opacity: 0;
 }
 
-.menu-item > button, .contacts .btn-contact {
+.menu-item > button, .btn-contact {
     background: #222;
     transition: all .3s ease-in;
     color: #bbb;
+    fill: #bbb;
 }
 
-.menu-item > button:hover, .contacts .btn-contact:hover {
+.btn-contact svg {
+    height: 27px;
+}
+
+.menu-item > button:hover, .btn-contact:hover {
     background: #333;
 }
 
@@ -174,6 +179,11 @@ h1 {
     background: #444;
     transition: all .3s ease-in;
     color: #eee;
+    fill: #eee;
+}
+.btn-back svg {
+    height: 1rem;
+    width: 1rem;
 }
 
 .btn-back.left {
@@ -188,4 +198,14 @@ h1 {
 
 .abandoned {
     display: none;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon svg {
+    display: flex;
 }
