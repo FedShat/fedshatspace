@@ -64,6 +64,9 @@ $(window).on('popstate', function (event) {
 });
 $(document).on('keyup', function (e) {
     if (e.key === 'Escape') {
-        goto_index();
+        if (document.location.pathname !== '/') {
+            goto_index();
+            history.pushState({page: 0}, 'vanutp', '/');
+        }
     }
 })
