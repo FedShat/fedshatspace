@@ -62,3 +62,8 @@ $(window).on('popstate', function (event) {
         goto_projects();
     }
 });
+$(document).on('keyup', function (e) {
+    if (e.key === 'Escape') {
+        goto_index();
+    }
+})
