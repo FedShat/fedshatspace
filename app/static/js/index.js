@@ -2,7 +2,6 @@ const section_front = $('.section-front');
 const section_about = $('.section-about');
 const section_projects = $('.section-projects');
 const abandoned = $('.abandoned');
-const abandoned_inner = $('.abandoned-inner');
 
 function goto_about() {
     section_front.css('left', '-100vw').css('top', '-100vh');
@@ -36,10 +35,15 @@ $('.btn-back').on('click', function () {
 })
 $('.btn-abandoned').on('click', function () {
     abandoned.toggleClass('collapse');
+    if (abandoned.hasClass('collapse')) {
+        abandoned.hide(400);
+    } else {
+        abandoned.show(400);
+    }
 })
 particlesJS.load('page-bg', '/static/particles.json', function () {
 });
-$(document).ready(function () {
+$(window).on('load', function () {
     var cnt = 0;
     $('.anim-item').each(function () {
         var it = $(this)
@@ -48,7 +52,6 @@ $(document).ready(function () {
         }, cnt * 300);
         cnt++;
     })
-    resize();
 });
 $(window).on('popstate', function (event) {
     if (document.location.pathname === '/') {
@@ -59,9 +62,3 @@ $(window).on('popstate', function (event) {
         goto_projects();
     }
 });
-
-function resize() {
-    abandoned.css('max-height', abandoned_inner.outerHeight(true))
-}
-
-$(window).on('resize', resize);
