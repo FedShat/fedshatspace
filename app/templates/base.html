@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#111111">
-    <meta name="description" content="Иван Филипенков, 14 лет, программист, (не)? дизайнер">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('send_static', path='meta/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('send_static', path='meta/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('send_static', path='meta/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('send_manifest') }}">
-    <link rel="preload" href="{{ url_for('send_static', path='fonts/woff2/FiraCode-VF.woff2') }}" as="font" type="font/woff2">
-    <link rel="preload" href="{{ url_for('send_static', path='fonts/woff/FiraCode-VF.woff') }}" as="font" type="font/woff">
+    <link rel="preload" href="{{ url_for('send_static', path='fonts/woff2/FiraCode-VF.woff2') }}" as="font"
+        type="font/woff2">
+    <link rel="preload" href="{{ url_for('send_static', path='fonts/woff/FiraCode-VF.woff') }}" as="font"
+        type="font/woff">
     <link rel="preconnect" href="https://mc.yandex.ru">
     <link rel="preconnect" href="https://twemoji.maxcdn.com">
     <link rel="preconnect" href="https://storage.googleapis.com">
-    <title>{% block title %}vanutp{% if title %} - {{ title }}{% endif %}{% endblock %}</title>
+    <title>{% block title %}fedshat{% if title %} - {{ title }}{% endif %}{% endblock %}</title>
     {% block styles %}
-        {% for asset in CSS_ASSETS %}
-            <link rel="stylesheet" href="{{ url_for('send_static', path=asset[0], v=asset[1]) }}">
-        {% endfor %}
+    {% for asset in CSS_ASSETS %}
+    <link rel="stylesheet" href="{{ url_for('send_static', path=asset[0], v=asset[1]) }}">
+    {% endfor %}
     {% endblock %}
 </head>
-<body>
-{% block content %}
 
-{% endblock %}
-{% block scripts %}
+<body>
+    {% block content %}
+
+    {% endblock %}
+    {% block scripts %}
     {% for asset in JS_ASSETS %}
-        <script src="{{ url_for('send_static', path=asset[0], v=asset[1]) }}"></script>
+    <script src="{{ url_for('send_static', path=asset[0], v=asset[1]) }}"></script>
     {% endfor %}
     <script>twemoji.parse(document.body);</script>
     {# @formatter:off #}
-    <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(65204365, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/65204365" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+    <!-- Yandex.Metrika counter -->
+    <script
+        type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(65204365, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }); </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/65204365" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript> <!-- /Yandex.Metrika counter -->
     {# @formatter:on #}
-{% endblock %}
+    {% endblock %}
 </body>
+
 </html>
